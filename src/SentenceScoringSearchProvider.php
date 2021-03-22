@@ -29,12 +29,8 @@ class SentenceScoringSearchProvider implements ISearchProvider
 	/**
 	 * @return IFoundWord[]
 	 */
-	public function findWordsInSentence(?string $sentence): array
+	public function findWordsInSentence(string $sentence): array
 	{
-		if ($sentence === null) {
-			return [];
-		}
-
 		$search = $this->searchFactory->getSearch($sentence);
 
 		// najdeme slova ktore chceme nahradit

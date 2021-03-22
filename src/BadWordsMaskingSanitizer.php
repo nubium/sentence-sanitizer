@@ -54,20 +54,30 @@ class BadWordsMaskingSanitizer implements ISentenceSanitizer
 	}
 
 
-	public function sanitize(?string $sentence): string
+	public function sanitize(string $sentence): string
 	{
 		$words = $this->searchProvider->findWordsInSentence($sentence);
 
 		// fullmatch slova
 		if ($regexpFullmatch = $this->prepareFullmatchRegexp($words)) {
-			$sentence = preg_replace($regexpFullmatch, $this->replacement, $sentence);
+			$sentence = $this->replaceWordsInSentence($regexpFullmatch, $sentence);
 		}
 
 		// substring slova
 		if ($regexpSubstring = $this->prepareSubstringRegexp($words)) {
-			$sentence = preg_replace($regexpSubstring, $this->replacement, $sentence);
+			$sentence = $this->replaceWordsInSentence($regexpSubstring, $sentence);
 		}
 
+		return $sentence;
+	}
+
+
+	protected function replaceWordsInSentence(string $regexp, string $sentence): string
+	{
+		$sentence = preg_replace($regexp, $this->replacement, $sentence);
+		if ($sentence === null) {
+			throw new SanitizeException('Error occured during replacing words in sentence.');
+		}
 		return $sentence;
 	}
 

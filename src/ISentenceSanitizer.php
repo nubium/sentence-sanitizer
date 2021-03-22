@@ -7,5 +7,5 @@ namespace Nubium\SentenceSanitizer;
  */
 interface ISentenceSanitizer
 {
-	public function sanitize(?string $sentence): string;
+	public function sanitize(string $sentence): string;
 }

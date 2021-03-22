@@ -9,5 +9,5 @@ interface ISearchProvider
 	/**
 	 * @return IFoundWord[]
 	 */
-	public function findWordsInSentence(?string $sentence): array;
+	public function findWordsInSentence(string $sentence): array;
 }
