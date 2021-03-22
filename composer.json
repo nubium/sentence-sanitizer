@@ -1,0 +1,35 @@
+{
+	"name": "nubium/sentence-sanitizer",
+	"description": "Provides tools for sanitizing sentences",
+	"license": "proprietary",
+	"type": "library",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"autoload": {
+		"psr-4": {
+			"Nubium\\SentenceSanitizer\\": "src/"
+		}
+	},
+	"require": {
+		"nubium/sentence-scoring": "v1.0.0"
+	},
+	"require-dev": {
+		"phpstan/phpstan": "^0.12.81",
+		"phpstan/phpstan-phpunit": "^0.12.18",
+		"phpstan/extension-installer": "^1.0",
+		"phpstan/phpstan-mockery": "^0.12.13",
+		"phpunit/phpunit": "^9",
+		"mockery/mockery": "~1.4"
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Nubium\\SentenceSanitizer\\Tests\\": "tests/"
+		}
+	},
+	"repositories": [
+		{
+			"url": "https://github.com/nubium/sentence-scoring",
+			"type": "github"
+		}
+	]
+}
