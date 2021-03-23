@@ -23,4 +23,8 @@
     </testsuite>
   </testsuites>
 
+  <logging>
+    <junit outputFile="./tests/results/sentence-sanitizer.xml"/>
+  </logging>
+
 </phpunit>
