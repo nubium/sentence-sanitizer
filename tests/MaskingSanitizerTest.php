@@ -24,6 +24,7 @@ class MaskingSanitizerTest extends TestCase
 	public function testSanitize(string $sentence, array $foundWords, string $expectedResult, string $replacement): void
 	{
 		$search = Mockery::mock(ISearch::class);
+		$this->assertIsArray($foundWords);
 
 		$words = [];
 		foreach ($foundWords as $foundWord) {
@@ -58,6 +59,7 @@ class MaskingSanitizerTest extends TestCase
 		$data = [];
 		foreach (['***', ''] as $replacement) {
 			foreach ($this->getSanitizeData($replacement) as $sanitizeData) {
+				$this->assertIsArray($sanitizeData);
 				$sanitizeData[] = $replacement;
 				$data[] = $sanitizeData;
 			}
