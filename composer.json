@@ -12,7 +12,7 @@
 	},
 	"require": {
 		"php": ">=7.4",
-		"nubium/sentence-scoring": "v1.1.0"
+		"nubium/sentence-scoring": "^1.2"
 	},
 	"require-dev": {
 		"phpstan/phpstan": "^1.4.2",
@@ -32,5 +32,10 @@
 			"url": "https://github.com/nubium/sentence-scoring",
 			"type": "github"
 		}
-	]
+	],
+	"config": {
+		"allow-plugins": {
+			"phpstan/extension-installer": true
+		}
+	}
 }
